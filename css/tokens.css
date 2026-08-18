@@ -1,0 +1,95 @@
+/* ============================================================
+   Perks: design tokens
+   Källa: design_handoff_perks_onepager/README.md (auktoritativ)
+   Kompletterad från perks-brand-guidelines där handoffen
+   refererar designsystemet: --sand, --ink-2, --mid.
+   ============================================================ */
+
+:root {
+  /* Färger */
+  --bone: #fbf4e6;
+  --sand: #f1e6ce;
+  --stone: #dccfb0;
+  --ink: #1f1a14;
+  --ink-2: #6b6358;
+  --mid: #7e7565;
+  --coral: #f26a4f;
+  --coral-2: #dd5638;
+  --forest: #9bb86b;
+  --berry: #c94772;
+  --sky: #7fb5d5;
+  --sunny: #f5c84a;
+  --blush: #f4b5b0;
+  --white: #ffffff;
+
+  /* Transparenser på mörk yta */
+  --bone-78: rgba(251, 244, 230, 0.78);
+  --bone-70: rgba(251, 244, 230, 0.7);
+  --bone-60: rgba(251, 244, 230, 0.6);
+  --bone-45: rgba(251, 244, 230, 0.45);
+  --white-line-12: rgba(255, 255, 255, 0.12);
+  --white-line-10: rgba(255, 255, 255, 0.1);
+  --input-fill: rgba(255, 255, 255, 0.05);
+  --input-line: rgba(255, 255, 255, 0.14);
+  --scrim: linear-gradient(to top, rgba(31, 26, 20, 0.6), transparent 55%);
+
+  /* Typografi */
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+  --font-text: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Radier */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  /* Fokusring */
+  --ring-coral: 0 0 0 3px rgba(242, 106, 79, 0.13);
+
+  /* Responsiva mått, mobilvärden (≤768px) */
+  --gutter: 20px;
+  --sec-pad-y: 44px;
+  --hero-pad-t: 36px;
+  --hero-gap: 28px;
+  --hero-img-h: 260px;
+  --split-gap: 20px;
+  --list-gap-t: 36px;
+  --tile-h: 200px;
+
+  /* Typskala, mobilvärden */
+  --fs-h1: 40px;
+  --fs-h1-sm: 32px;
+  --fs-h2: 28px;
+  --fs-lead: 20px;
+  --fs-pull: 22px;
+  --fs-body-lg: 17px;
+  --fs-big-num: 34px;
+  --fs-bar: 10px;
+  --ls-bar: 0.04em;
+}
+
+/* Desktopvärden (>768px) */
+@media (min-width: 769px) {
+  :root {
+    --gutter: 40px;
+    --sec-pad-y: 76px;
+    --hero-pad-t: 64px;
+    --hero-gap: 48px;
+    --hero-img-h: 460px;
+    --split-gap: 48px;
+    --list-gap-t: 56px;
+    --tile-h: 260px;
+
+    --fs-h1: 70px;
+    --fs-h1-sm: 52px;
+    --fs-h2: 40px;
+    --fs-lead: 26px;
+    --fs-pull: 30px;
+    --fs-body-lg: 19px;
+    --fs-big-num: 48px;
+    --fs-bar: 11px;
+    --ls-bar: 0.09em;
+  }
+}
