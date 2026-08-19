@@ -66,8 +66,6 @@
   --fs-pull: 22px;
   --fs-body-lg: 17px;
   --fs-big-num: 34px;
-  --fs-bar: 10px;
-  --ls-bar: 0.04em;
 }
 
 /* Desktopvärden (>768px) */
@@ -89,7 +87,5 @@
     --fs-pull: 30px;
     --fs-body-lg: 19px;
     --fs-big-num: 48px;
-    --fs-bar: 11px;
-    --ls-bar: 0.09em;
   }
 }
