@@ -40,6 +40,13 @@ S3, vanlig webbserver, vad som helst som serverar statiska filer). Klart.
    sajten med fler sidor: byt `href="#om"` etc. till riktiga URL:er eller `/#om`
    så att länkarna funkar från undersidor.
 
+## Cache
+
+CSS- och JS-länkarna i `index.html` har en versionsstämpel (`?v=260827a`). Bumpa den
+varje gång ni ändrar i `css/` eller `js/`, annars kan besökare få ny HTML mot gammal
+cachad CSS. Har er host fingerprinting eller egen cache-policy kan ni ta bort
+stämplarna och köra på den.
+
 ## Designregler att respektera
 
 - Ändra inte copy. Den är slutgiltig från kunden.

@@ -55,6 +55,8 @@ python3 -m http.server 8000
   under den sticky headern.
 - `<meta name="robots" content="noindex">` ligger i `<head>` medan sidan bara är preview.
   **Ta bort vid skarp publicering.**
+- CSS/JS-länkarna har versionsstämpel (`?v=…`). Bumpa vid varje ändring i `css/` eller `js/`
+  så att GitHub Pages cache (10 min) inte serverar gamla filer mot ny HTML.
 
 ## Design
 
