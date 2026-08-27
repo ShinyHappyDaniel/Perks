@@ -190,7 +190,7 @@ h2 {
 }
 
 .logo--header {
-  font-size: 20px;
+  font-size: 40px;
 }
 
 /* ---------- Knappar ---------- */
@@ -277,10 +277,6 @@ h2 {
   gap: 10px;
 }
 
-.header-cta {
-  display: none;
-}
-
 .burger {
   display: flex;
   align-items: center;
@@ -324,10 +320,6 @@ h2 {
     color: var(--ink);
   }
 
-  .header-cta {
-    display: inline-flex;
-  }
-
   .burger {
     display: none;
   }
@@ -355,11 +347,6 @@ h2 {
   padding: 14px 0;
   font-size: 16px;
   border-bottom: 1px solid var(--stone);
-}
-
-.mobile-menu .btn {
-  margin-top: 20px;
-  width: 100%;
 }
 
 @media (min-width: 769px) {
