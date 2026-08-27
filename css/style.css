@@ -1,5 +1,5 @@
 /* ============================================================
-   Perks: informativ undersida
+   Perks: startsida
    Mobile-first. Brytpunkt: 768px (mobil ≤768, desktop >768).
    Alla värden kommer från design-handoffens spec.
    ============================================================ */
@@ -60,10 +60,34 @@ a:hover {
   border-radius: var(--r-xs);
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 300;
+  background: var(--ink);
+  color: var(--bone);
+  padding: 12px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus-visible {
+  left: 0;
+  color: var(--bone);
+}
+
 .container {
   max-width: calc(1280px + var(--gutter) * 2);
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+
+/* Ankare hamnar under sticky header (68px) */
+[id] {
+  scroll-margin-top: 68px;
 }
 
 /* ---------- Typografi ---------- */
@@ -140,6 +164,35 @@ h2 {
   text-transform: uppercase;
 }
 
+/* ---------- Logotyp (live text, per brand guidelines) ---------- */
+.logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-feature-settings: "ss01";
+  letter-spacing: -0.045em;
+  line-height: 0.82;
+  color: var(--ink);
+  display: inline-block;
+}
+
+.logo:hover {
+  color: var(--ink);
+}
+
+.logo-dot {
+  display: inline-block;
+  width: 0.2em;
+  height: 0.2em;
+  border-radius: 50%;
+  background: var(--coral);
+  margin-left: 0.035em;
+  margin-bottom: 0.06em;
+}
+
+.logo--header {
+  font-size: 20px;
+}
+
 /* ---------- Knappar ---------- */
 .btn {
   display: inline-flex;
@@ -195,6 +248,124 @@ h2 {
   font-size: 14px;
   line-height: 1.3;
   padding: 8.5px 18px;
+}
+
+/* ---------- Sticky header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--bone);
+  border-bottom: 1px solid var(--stone);
+}
+
+.header-row {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav {
+  display: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-cta {
+  display: none;
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 1.5px solid var(--stone);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.burger[aria-expanded="true"] {
+  border-color: var(--ink);
+}
+
+.burger-glyph {
+  display: block;
+  width: 18px;
+  height: 10px;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+}
+
+@media (min-width: 769px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    border-radius: var(--r-pill);
+  }
+
+  .nav-link:hover {
+    background: var(--sand);
+    color: var(--ink);
+  }
+
+  .header-cta {
+    display: inline-flex;
+  }
+
+  .burger {
+    display: none;
+  }
+}
+
+/* Mobilmeny: öppen designfråga i handoffen, formgiven i sidans
+   formspråk: bone-panel under headern, stone-hårlinjer, CTA längst ned. */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bone);
+  border-bottom: 1px solid var(--stone);
+  padding: 8px var(--gutter) 20px;
+}
+
+.mobile-menu.is-open {
+  display: block;
+}
+
+.mobile-menu-link {
+  display: block;
+  padding: 14px 0;
+  font-size: 16px;
+  border-bottom: 1px solid var(--stone);
+}
+
+.mobile-menu .btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none !important;
+  }
 }
 
 /* ---------- Sektioner ---------- */

@@ -29,7 +29,33 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body id="top">
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="logo logo--header" href="#top">perks<span class="logo-dot" aria-hidden="true"></span></a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <a class="nav-link" href="#om">Om Perks</a>
+        <a class="nav-link" href="#varfor">Varför Perks</a>
+        <a class="nav-link" href="#partners">För partners</a>
+        <a class="nav-link" href="#plattform">Plattformen</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn--primary btn--sm header-cta" href="#kontakt">Bli partner <span aria-hidden="true">→</span></a>
+        <button class="burger" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Meny">
+          <span class="burger-glyph" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobilmeny">
+      <a class="mobile-menu-link" href="#om">Om Perks</a>
+      <a class="mobile-menu-link" href="#varfor">Varför Perks</a>
+      <a class="mobile-menu-link" href="#partners">För partners</a>
+      <a class="mobile-menu-link" href="#plattform">Plattformen</a>
+      <a class="btn btn--primary btn--lg" href="#kontakt">Bli partner <span aria-hidden="true">→</span></a>
+    </nav>
+  </header>
 
   <main id="main">
 

@@ -1,45 +1,44 @@
 # Perks: överlämning till utvecklare
 
-Detta är en **informativ undersida** som ska in på Perks kommande huvudsajt. Den har
-medvetet ingen egen header, meny eller footer: huvudsajten står för sidramen. Repot är
-samtidigt en komplett statisk sida så att den kan förhandsgranskas fristående.
+Detta är sajtens **startsida**, färdig att publiceras. Ren statisk sida utan byggsteg:
+kopiera mappens innehåll till webbroten på er host (Netlify, Vercel, Cloudflare Pages,
+S3, vanlig webbserver, vad som helst som serverar statiska filer). Klart.
 
-## Två sätt att använda den
+## Checklista före skarp publicering
 
-**A. Montera in i huvudsajten (tänkt väg).**
-Lyft allt innehåll inuti `<main>` i `index.html` och lägg det mellan er header och
-footer. Ta med `css/tokens.css`, `css/style.css`, `js/main.js` och `assets/img/`.
-Klassnamnen är generiska (`.btn`, `.section`, `.hero` m.fl.), så om er sajt har egen
-CSS: scopa vår, t.ex. genom att wrappa innehållet i `<div class="perks-info">` och
-prefixa selektorerna, eller kör CSS:en genom er modulhantering.
+1. **Ta bort noindex.** I `index.html`, `<head>`:
+   ```html
+   <meta name="robots" content="noindex">
+   ```
+   Radera raden, annars indexeras inte sajten.
 
-**B. Hosta som egen statisk sida** på en path under er domän (t.ex. `/partners`).
-Kopiera hela mappen till webbroten. Inget byggsteg.
+2. **Domänberoende taggar.** I `<head>`:
+   - Byt `og:image` från GitHub Pages-adressen till er domän:
+     `https://DIN-DOMÄN/assets/og-image.jpg`
+   - Lägg till `<link rel="canonical" href="https://DIN-DOMÄN/">`
+   Alla andra sökvägar i sidan är relativa och fungerar oavsett domän eller path.
 
-## Checklista före skarp lansering
-
-1. **Formuläret.** `js/main.js`: e-posten valideras lokalt och en bekräftelse visas,
-   men inget skickas. Ersätt `TODO (produktion)`-raden med anrop till ert API, CRM
-   eller en formulärtjänst. Fält: `email`. Copy finns i JS:
+3. **Koppla kontaktformuläret.** `js/main.js`, sektionen "Kontaktformulär".
+   E-posten valideras lokalt och en bekräftelse visas, men inget skickas. Ersätt
+   `TODO (produktion)`-raden med anrop till ert API, CRM eller en formulärtjänst
+   (Formspree, Netlify Forms, HubSpot etc). Fält: `email`. Copy finns i JS:
    - Fel: "Fyll i en giltig e-postadress."
    - Success: "Tack! Vi hör av oss inom kort."
 
-2. **Head-taggar.** Vid inbakning (väg A) styr huvudsajtens `<head>`; ignorera vår.
-   Vid egen sida (väg B): ta bort `<meta name="robots" content="noindex">`, byt
-   `og:image`-URL:en till er domän och lägg till canonical.
-
-3. **Byt placeholderfoton.** Bilderna i `assets/img/` är licensierad stockfoto som
+4. **Byt placeholderfoton.** Bilderna i `assets/img/` är licensierad stockfoto som
    kunden köpt, tänkta som stand-ins. Vid byte: exportera i tre bredder per bild
    (intro: 768/1280/1920, tiles: 700/1200/1600) i WebP + JPEG och behåll filnamnen,
    så behöver ingen kod röras. Tiles beskärs till 8:5, introfotot till 3:2.
 
-4. **Ankare och länkar.** Sektionerna har id `om`, `varfor`, `partners`, `plattform`,
-   `kontakt`. CTA-knapparna pekar internt på `#kontakt` och `#plattform`. Vill ni
-   länka hit från huvudmenyn funkar djuplänkar till alla sex sektioner. Om er header
-   är sticky: sätt `scroll-margin-top` på sektionerna motsvarande headerhöjden.
+5. **Footer, juridik, cookies.** Sidan har ingen footer och inga policylänkar.
+   Sidan sätter inga cookies och laddar ingen tracking, så inget samtycke krävs i
+   nuläget. Lägger ni till analytics måste samtycke lösas. Behöver ni en footer med
+   integritetspolicy och villkor: originaldesignen har en (mörk, logga + länkrad +
+   copyright), säg till så levererar vi den.
 
-5. **Juridik / cookies.** Sidan sätter inga cookies och laddar ingen tracking.
-   Samtycke och policylänkar hanteras av huvudsajten.
+6. **Fler sidor senare.** Headerns länkar är ankare på startsidan. Bygger ni ut
+   sajten med fler sidor: byt `href="#om"` etc. till riktiga URL:er eller `/#om`
+   så att länkarna funkar från undersidor.
 
 ## Designregler att respektera
 
@@ -49,13 +48,21 @@ Kopiera hela mappen till webbroten. Inget byggsteg.
   är 0.15s färgövergångar.
 - Coral (`#f26a4f`) hålls under ~8% av ytan. Enda större coral-ytan är den tunna
   fact-stripen ovanför kontaktsektionen.
+- Headern är sticky, 68px hög. Sektionerna har `scroll-margin-top: 68px` så rubriker
+  inte hamnar under den vid ankarnavigering. Ändrar ni headerhöjden: ändra båda.
+
+## Om ni portar till ramverk
+
+Vill ni ha sidan i Astro, Next.js eller liknande: behåll `css/tokens.css` orörd,
+dela upp `index.html` i komponenter per sektion och flytta över JS:en i `main.js`
+(menyn och formuläret) till motsvarande komponent. Inga andra beroenden finns.
 
 ## Fonter
 
 Google Fonts, laddas i `<head>`:
 ```
-Bricolage Grotesque  500 / 600 / 800   (rubriker, alltid font-feature-settings: "ss01")
-Geist                400 / 500          (brödtext, knappar)
+Bricolage Grotesque  500 / 600 / 800   (rubriker och logga, alltid font-feature-settings: "ss01")
+Geist                400 / 500          (brödtext, knappar, meny)
 Geist Mono           400 / 600          (etiketter)
 ```
 Vill ni self-hosta: ladda ner samma vikter, lägg i `assets/fonts/` och byt
@@ -64,7 +71,9 @@ Google Fonts-länken mot `@font-face`-regler. Inget annat behöver ändras.
 ## Test
 
 Verifierat i Chrome på 375, 768, 1280 och 1440 px: ingen horisontell scroll,
-alla bilder laddar rätt srcset-kandidat, inga konsolfel, formuläret fungerar.
+alla bilder laddar rätt srcset-kandidat, inga konsolfel, mobilmenyn öppnar/stänger
+(knapp, länkval, Escape, klick utanför), ankarlänkar landar under headern,
+formuläret fungerar.
 
 ## Kontakt
 
