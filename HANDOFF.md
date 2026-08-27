@@ -36,13 +36,17 @@ S3, vanlig webbserver, vad som helst som serverar statiska filer). Klart.
    integritetspolicy och villkor: originaldesignen har en (mörk, logga + länkrad +
    copyright), säg till så levererar vi den.
 
-6. **Fler sidor senare.** Headerns länkar är ankare på startsidan. Bygger ni ut
+6. **Återställa fullängdsversionen.** Vill kunden ha tillbaka den längre copyn
+   (sektionen Lansering, coral-stripen m.m.) finns den som git-tagg
+   `full-copy-26-08-27` i repot.
+
+7. **Fler sidor senare.** Headerns länkar är ankare på startsidan. Bygger ni ut
    sajten med fler sidor: byt `href="#om"` etc. till riktiga URL:er eller `/#om`
    så att länkarna funkar från undersidor.
 
 ## Cache
 
-CSS- och JS-länkarna i `index.html` har en versionsstämpel (`?v=260827a`). Bumpa den
+CSS- och JS-länkarna i `index.html` har en versionsstämpel (`?v=260827c`). Bumpa den
 varje gång ni ändrar i `css/` eller `js/`, annars kan besökare få ny HTML mot gammal
 cachad CSS. Har er host fingerprinting eller egen cache-policy kan ni ta bort
 stämplarna och köra på den.
@@ -53,8 +57,8 @@ stämplarna och köra på den.
 - Brytpunkten är **768px**, ingen annan. Alla designvärden bor i `css/tokens.css`.
 - Inga hover-zoomar på bilder, inga entrance-animationer, ingen parallax. Enda rörelsen
   är 0.15s färgövergångar.
-- Coral (`#f26a4f`) hålls under ~8% av ytan. Enda större coral-ytan är den tunna
-  fact-stripen ovanför kontaktsektionen.
+- Coral (`#f26a4f`) hålls under ~8% av ytan: knappar, chips, punktnummer och
+  diagrampilar. Inga stora coral-fält.
 - Headern är sticky, 68px hög. Sektionerna har `scroll-margin-top: 68px` så rubriker
   inte hamnar under den vid ankarnavigering. Ändrar ni headerhöjden: ändra båda.
 

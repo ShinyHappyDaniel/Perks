@@ -23,13 +23,13 @@ HANDOFF.md          Instruktioner till utvecklare inför publicering
 
 ## Sidans flöde
 
-Sticky header (logga, ankarlänkar, CTA) → intro (rubrik, lead, foto) → statsband →
-01 Om Perks → 02 Lansering → 03 Varför Perks → 04 För partners → 05 Plattformen →
-coral-strip → 06 Kontakt (e-postformulär).
+Sticky header (logga, ankarlänkar) → intro (rubrik, lead, foto) → statsband →
+01 Om Perks → 02 Varför Perks → 03 För partners → 04 Plattformen → 05 Kontakt
+(e-postformulär).
 
 Headerns länkar går till ankarna `#om`, `#varfor`, `#partners`, `#plattform`.
-CTA-knappen "Bli partner" går till `#kontakt`. På mobil ersätts menyn av en
-hamburgerknapp som fäller ut samma länkar plus CTA.
+Hero-knappen "Bli partner" går till `#kontakt`. På mobil ersätts menyn av en
+hamburgerknapp som fäller ut samma länkar.
 
 ## Köra lokalt
 
@@ -62,5 +62,7 @@ python3 -m http.server 8000
 
 Designkälla: `design_handoff_perks_onepager/` (Claude Design, augusti 2026).
 Brand: `perks-brand-guidelines/`. Jämfört med ursprungsdesignen är announcement-baren,
-nedräkningen och footern borttagna på kundens begäran (26-08-18). Sektionen
-"02 · Lansering" ligger kvar med statiskt datum.
+nedräkningen, footern och header-CTA:n borttagna på kundens begäran. 26-08-27 ströks
+även redundant copy (sektionen Lansering, coral-stripen, hero-eyebrow, dubblerade
+ingresser, två av fem partnerpunkter). Versionen innan strykningen finns som git-tagg
+`full-copy-26-08-27`.

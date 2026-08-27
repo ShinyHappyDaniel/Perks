@@ -406,10 +406,6 @@ h2 {
   align-items: end;
 }
 
-.hero-eyebrow {
-  margin-bottom: 20px;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -532,17 +528,9 @@ h2 {
   margin: 0;
 }
 
-.tile--wide .tile-text {
-  max-width: 46ch;
-}
-
 @media (min-width: 769px) {
   .tile-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .tile--wide {
-    grid-column: span 2;
   }
 }
 
@@ -698,34 +686,7 @@ h2 {
   }
 }
 
-/* ---------- Coral fact strip ---------- */
-.fact-strip {
-  background: var(--coral);
-  color: var(--white);
-}
-
-.fact-strip-row {
-  padding-block: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.fact-sep {
-  opacity: 0.6;
-}
-
 /* ---------- Kontakt ---------- */
-.contact-intro {
-  margin-bottom: 20px;
-  max-width: 52ch;
-  color: var(--bone-78);
-}
-
 .contact-h2 {
   font-weight: 500;
   font-size: var(--fs-h1-sm);
