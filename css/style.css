@@ -757,6 +757,16 @@ h2 {
   color: var(--bone);
 }
 
+.form-status a {
+  color: var(--bone);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-status a:hover {
+  color: var(--coral);
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

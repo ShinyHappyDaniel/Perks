@@ -18,12 +18,16 @@ S3, vanlig webbserver, vad som helst som serverar statiska filer). Klart.
    - Lägg till `<link rel="canonical" href="https://DIN-DOMÄN/">`
    Alla andra sökvägar i sidan är relativa och fungerar oavsett domän eller path.
 
-3. **Koppla kontaktformuläret.** `js/main.js`, sektionen "Kontaktformulär".
-   E-posten valideras lokalt och en bekräftelse visas, men inget skickas. Ersätt
-   `TODO (produktion)`-raden med anrop till ert API, CRM eller en formulärtjänst
-   (Formspree, Netlify Forms, HubSpot etc). Fält: `email`. Copy finns i JS:
-   - Fel: "Fyll i en giltig e-postadress."
-   - Success: "Tack! Vi hör av oss inom kort."
+3. **Kontaktknapparna.** Båda går till **karl@perks.se** via `mailto:` och fungerar
+   utan backend:
+   - Hero-knappen "Bli partner" öppnar ett mejl med ämnet "Bli partner på Perks".
+   - Formuläret "Boka ett samtal" validerar adressen och öppnar ett förifyllt mejl
+     (ämne "Boka ett samtal om Perks", besökarens adress i texten). Utan JS faller
+     formuläret tillbaka på `action="mailto:"`.
+   Vill ni ha ett riktigt formulär som skickar utan mejlprogram: ersätt mailto-blocket
+   i `js/main.js` (kommenterat) med anrop till ert API eller en formulärtjänst
+   (Formspree, Netlify Forms, HubSpot) som levererar till karl@perks.se. Adressen
+   ligger i variabeln `CONTACT` överst i formulärdelen.
 
 4. **Byt placeholderfoton.** Bilderna i `assets/img/` är licensierad stockfoto som
    kunden köpt, tänkta som stand-ins. Vid byte: exportera i tre bredder per bild
@@ -46,7 +50,7 @@ S3, vanlig webbserver, vad som helst som serverar statiska filer). Klart.
 
 ## Cache
 
-CSS- och JS-länkarna i `index.html` har en versionsstämpel (`?v=260827c`). Bumpa den
+CSS- och JS-länkarna i `index.html` har en versionsstämpel (`?v=260827d`). Bumpa den
 varje gång ni ändrar i `css/` eller `js/`, annars kan besökare få ny HTML mot gammal
 cachad CSS. Har er host fingerprinting eller egen cache-policy kan ni ta bort
 stämplarna och köra på den.
@@ -84,7 +88,7 @@ Google Fonts-länken mot `@font-face`-regler. Inget annat behöver ändras.
 Verifierat i Chrome på 375, 768, 1280 och 1440 px: ingen horisontell scroll,
 alla bilder laddar rätt srcset-kandidat, inga konsolfel, mobilmenyn öppnar/stänger
 (knapp, länkval, Escape, klick utanför), ankarlänkar landar under headern,
-formuläret fungerar.
+kontaktknapparna öppnar mejl till karl@perks.se.
 
 ## Kontakt
 

@@ -45,8 +45,8 @@
   }
 
   /* ---------- Kontaktformulär ----------
-     OBS: Ingen backend är kopplad ännu. Formuläret validerar och visar
-     bekräftelse lokalt. Koppla submit till ert API/CRM, se HANDOFF.md. */
+     Mailto till Karl. Ingen backend krävs. */
+  var CONTACT = "karl@perks.se";
   var form = document.getElementById("contact-form");
   var input = document.getElementById("email");
   var status = document.getElementById("form-status");
@@ -63,11 +63,17 @@
         return;
       }
 
-      /* TODO (produktion): skicka input.value till endpoint här. */
+      /* Öppnar besökarens mejlprogram med ett förifyllt mejl till Karl.
+         Vill ni ha ett riktigt formulär utan mejlprogram: ersätt blocket
+         med ett anrop till ert API/formulärtjänst, se HANDOFF.md. */
+      var subject = "Boka ett samtal om Perks";
+      var body = "Hej Karl,\n\nJag vill boka ett samtal om Perks.\n\nNå mig på: " + input.value.trim() + "\n";
       input.removeAttribute("aria-invalid");
       form.querySelector(".form-row").hidden = true;
       status.className = "form-status form-status--success";
-      status.textContent = "Tack! Vi hör av oss inom kort.";
+      status.innerHTML = "Ditt mejlprogram öppnas med ett meddelande till karl@perks.se. " +
+        "Öppnas inget? Mejla <a href=\"mailto:karl@perks.se\">karl@perks.se</a> direkt.";
+      window.location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });
 
     input.addEventListener("input", function () {

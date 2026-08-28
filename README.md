@@ -11,7 +11,7 @@ Lansering 1 oktober 2026. All copy är på svenska och kommer verbatim från kun
 index.html          Hela sidan (semantisk HTML5, lang="sv")
 css/tokens.css      Designtokens: färger, typsnitt, radier, responsiva mått
 css/style.css       All layout och komponentstil, mobile-first
-js/main.js          Mobilmeny + formulärvalidering (vanilla, inga beroenden)
+js/main.js          Mobilmeny + formulär (validering, mailto till karl@perks.se)
 assets/
   img/              Responsiva bildset, WebP + JPEG-fallback, 3 storlekar per bild
   favicon.svg       Favicon (från Perks brand guidelines)
@@ -28,7 +28,7 @@ Sticky header (logga, ankarlänkar) → intro (rubrik, lead, foto) → statsband
 (e-postformulär).
 
 Headerns länkar går till ankarna `#om`, `#varfor`, `#partners`, `#plattform`.
-Hero-knappen "Bli partner" går till `#kontakt`. På mobil ersätts menyn av en
+Hero-knappen "Bli partner" och formuläret "Boka ett samtal" öppnar mejl till karl@perks.se (`mailto:`). På mobil ersätts menyn av en
 hamburgerknapp som fäller ut samma länkar.
 
 ## Köra lokalt
